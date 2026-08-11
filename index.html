@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noemi Stefanoni Hairdresser | Links Oficiais</title>
+
+    <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Noemi Stefanoni Hairdresser — Moreira César">
+    <meta property="og:description" content="Cabelo, estética e beleza em Moreira César - SP. Confira os serviços e agende pelo WhatsApp.">
+    <meta property="og:image" content="assets/img/logo_noemi.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Noemi Stefanoni Hairdresser — salão de beleza em Moreira César, Pindamonhangaba - SP.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Alex+Brush&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-logo-ring">
+                <img src="assets/img/logo_noemi.webp" alt="Noemi Stefanoni Hairdresser" class="loader-logo">
+            </div>
+            <div class="loader-name">Noemi Stefanoni</div>
+            <div class="loader-sub">Hairdresser · Moreira César</div>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <main class="app-screen">
+
+        <!-- ===== TOPO ===== -->
+        <div class="header-status animate-item" style="--delay: 0.1s;">
+            <div class="status-left">
+                <span class="greeting" id="greeting-text">BOM DIA</span>
+                <div class="weather-badge weather-badge--static">
+                    <i class="fas fa-scissors"></i> Hair · Beauty
+                </div>
+            </div>
+            <div class="status-right">
+                <button class="share-circle-btn" onclick="abrirQrModal()" aria-label="Mostrar QR Code">
+                    <i class="fas fa-qrcode"></i>
+                </button>
+                <button class="share-circle-btn" onclick="compartilharSite()" aria-label="Compartilhar página">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== MENU FIXO DE ATALHOS ===== -->
+        <nav class="quick-nav">
+            <button onclick="irPara('secao-servicos')"><i class="fas fa-scissors"></i> Serviços</button>
+            <button onclick="irPara('secao-fotos')"><i class="fas fa-images"></i> Fotos</button>
+            <button onclick="irPara('secao-local')"><i class="fas fa-map-marker-alt"></i> Local</button>
+        </nav>
+
+        <!-- ===== PERFIL ===== -->
+        <header class="profile-area animate-item" style="--delay: 0.2s;">
+            <div class="avatar-container">
+                <img src="assets/img/logo_noemi.webp" alt="Noemi Stefanoni Hairdresser" class="avatar-img">
+            </div>
+            <div class="profile-text">
+                <h1>Noemi Stefanoni</h1>
+                <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Moreira César · Pindamonhangaba</p>
+                <div class="profile-rating">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-text">Hairdresser</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== REDES SOCIAIS / CONTATO ===== -->
+        <div class="social-row animate-item" style="--delay: 0.25s;">
+            <button class="social-icon-btn social-icon-btn--whatsapp" onclick="abrirWhatsModal()" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+            <a href="https://www.instagram.com/noemistefanonihairdresser/" target="_blank" class="social-icon-btn"
+                aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <button class="social-icon-btn" onclick="abrirLocalModal()" aria-label="Como chegar">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+        </div>
+
+        <!-- ===== BOAS VINDAS ===== -->
+        <div class="welcome-box animate-item" style="--delay: 0.3s;">
+            <p>"Onde cada detalhe é pensado para revelar sua melhor versão."</p>
+        </div>
+
+        <!-- ===== SELO PRODUTOS DE QUALIDADE ===== -->
+        <div class="quality-seal animate-item" style="--delay: 0.32s;">
+            <i class="fas fa-award"></i>
+            <span>Produtos profissionais de alta qualidade</span>
+        </div>
+
+        <!-- ===== HORÁRIO DE FUNCIONAMENTO ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.34s;">
+            <h2 class="group-title"><i class="fas fa-clock"></i> HORÁRIO DE FUNCIONAMENTO</h2>
+            <div class="hours-card">
+                <div class="hours-row"><span>Segunda — Sábado</span><span>09:00 — 18:00</span></div>
+                <div class="hours-row"><span>Domingo</span><span class="hours-closed">Fechado</span></div>
+            </div>
+        </section>
+
+        <!-- ===== SERVIÇOS ===== -->
+        <section class="menu-group animate-item" id="secao-servicos" style="--delay: 0.35s;">
+            <h2 class="group-title"><svg class="hand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8.2 7.6 20 18M8.2 16.4 20 6"/></svg> CABELO</h2>
+
+            <div class="accordion-container">
+                <div class="card-item accordion-trigger" onclick="toggleAccordion(this)">
+                    <div class="card-content">
+                        <div class="icon-wrapper suite-bg"><i class="fas fa-spa suite-color"></i></div>
+                        <div class="text-wrapper">
+                            <h3>Serviços Capilares</h3>
+                            <p>Cortes, cor, tratamentos e mais</p>
+                        </div>
+                    </div>
+                    <div class="action-pill dropdown-btn">
+                        Ver <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="accordion-body">
+                    <div class="accordion-inner suites-inner">
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Penteados</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Maquiagem</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Mechas</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Coloração</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Escovas</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Escovas Progressivas</span></div></div>
+                        <div class="suite-card"><div class="suite-header"><span class="suite-name">Cronogramas Capilares</span></div></div>
+                        <div class="suite-card no-border-suite">
+                            <div class="suite-header"><span class="suite-name">Tratamentos com Tecnologia</span></div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bolt"></i> Ozonioterapia</span>
+                                <span class="suite-tag"><i class="fas fa-bolt"></i> Laser LED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="group-title" style="margin-top:18px;"><i class="fas fa-hand-sparkles"></i> UNHAS</h2>
+            <a href="https://wa.me/5512991238097"
+                target="_blank" class="card-item link-mode">
+                <div class="card-content">
+                    <div class="icon-wrapper suite-bg"><i class="fas fa-hand-sparkles suite-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Manicure e Pedicure</h3>
+                        <p>Izadora Ribeiro · Cuidado completo para mãos e pés</p>
+                    </div>
+                </div>
+                <div class="action-pill"><i class="fab fa-whatsapp"></i> Agendar</div>
+            </a>
+
+            <h2 class="group-title" style="margin-top:18px;"><i class="fas fa-palette"></i> ANÁLISE DE COLORAÇÃO PESSOAL</h2>
+            <a href="https://wa.me/5512991935453"
+                target="_blank" class="card-item link-mode">
+                <div class="card-content">
+                    <div class="icon-wrapper suite-bg"><i class="fas fa-palette suite-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Análise de Coloração Pessoal</h3>
+                        <p>Vitória Marcondes · Cabeleireira assistente</p>
+                    </div>
+                </div>
+                <div class="action-pill"><i class="fab fa-whatsapp"></i> Agendar</div>
+            </a>
+
+            <h2 class="group-title" style="margin-top:18px;"><svg class="hand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c0-2.2 2.4-4 6-4s7 1.8 7 4-3 3.6-3 3.6H8.5"/><rect x="3" y="10.6" width="6" height="4.4" rx="1.6"/><path d="M6 15v3.4M6 18.4c0 1-1 1.6-1 1.6h2s-1-.6-1-1.6Z"/><path d="M17 8c1.6 0 2.6-1 2.6-1"/></svg> ESTÉTICA</h2>
+            <a href="https://wa.me/5512974105456"
+                target="_blank" class="card-item link-mode">
+                <div class="card-content">
+                    <div class="icon-wrapper map-bg"><i class="fas fa-spa map-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Estética Facial, Corporal e Sobrancelha</h3>
+                        <p>Bruna Santos · Design de sobrancelha e cuidados estéticos</p>
+                    </div>
+                </div>
+                <div class="action-pill"><i class="fab fa-whatsapp"></i> Agendar</div>
+            </a>
+        </section>
+
+        <!-- ===== GALERIA - TRABALHOS ===== -->
+        <section class="menu-group animate-item" id="secao-fotos" style="--delay: 0.45s;">
+            <h2 class="group-title"><i class="fas fa-images"></i> NOSSOS TRABALHOS</h2>
+            <div class="auto-carousel" onclick="cliqueCarrossel(event, 'trabalhos')">
+                <div class="auto-carousel-track" id="track-trabalhos">
+                    <img src="assets/img/trabalho1.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="0">
+                    <img src="assets/img/trabalho2.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="1">
+                    <img src="assets/img/trabalho3.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="2">
+                    <img src="assets/img/trabalho4.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="3">
+                    <img src="assets/img/trabalho5.png" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="4">
+                    <img src="assets/img/foto6.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="5">
+                    <img src="assets/img/foto7.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="6">
+                    <img src="assets/img/foto8.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="7">
+                    <img src="assets/img/foto9.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="8">
+                    <img src="assets/img/foto10.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="9">
+                    <img src="assets/img/foto11.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="10">
+                    <img src="assets/img/trabalho6.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="11">
+                    <img src="assets/img/trabalho7.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="12">
+                    <img src="assets/img/trabalho8.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="13">
+                    <img src="assets/img/trabalho9.jpg" alt="Noemi trabalhando" loading="lazy" data-idx="14">
+                    <img src="assets/img/trabalho10.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="15">
+                    <img src="assets/img/trabalho11.jpg" alt="Trabalho Noemi Stefanoni" loading="lazy" data-idx="16">
+                    <img src="assets/img/trabalho12.jpg" alt="Noemi Stefanoni" loading="lazy" data-idx="17">
+                    <img src="assets/img/trabalho13.jpg" alt="Noemi Stefanoni" loading="lazy" data-idx="18">
+                    <img src="assets/img/trabalho14.jpg" alt="Equipe Noemi Stefanoni" loading="lazy" data-idx="19">
+                    <img src="assets/img/trabalho15.jpg" alt="Noemi trabalhando" loading="lazy" data-idx="20">
+                    <img src="assets/img/trabalho16.jpg" alt="Análise de Coloração Pessoal" loading="lazy" data-idx="21">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERIA - NOSSO ESPAÇO ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.47s;">
+            <h2 class="group-title"><i class="fas fa-store"></i> NOSSO ESPAÇO</h2>
+            <div class="auto-carousel auto-carousel--reverse" onclick="cliqueCarrossel(event, 'espaco')">
+                <div class="auto-carousel-track" id="track-espaco">
+                    <img src="assets/img/foto1.webp" alt="Espaço Noemi Stefanoni" loading="lazy" data-idx="0">
+                    <img src="assets/img/foto2.webp" alt="Espaço Noemi Stefanoni" loading="lazy" data-idx="1">
+                    <img src="assets/img/foto3.webp" alt="Espaço Noemi Stefanoni" loading="lazy" data-idx="2">
+                    <img src="assets/img/foto4.webp" alt="Espaço Noemi Stefanoni" loading="lazy" data-idx="3">
+                    <img src="assets/img/foto5.webp" alt="Espaço Noemi Stefanoni" loading="lazy" data-idx="4">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERIA - UNHAS ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.48s;">
+            <h2 class="group-title"><svg class="hand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h4l.5 3h-5L9 3Z"/><path d="M8.4 6h5.2l1 12.2c.15 1.8-1.3 3.3-3.1 3.3h-1c-1.8 0-3.25-1.5-3.1-3.3L8.4 6Z"/><path d="M8.7 10.5h5.4"/></svg> GALERIA DE MANICURE</h2>
+            <div class="auto-carousel" onclick="cliqueCarrossel(event, 'unhas')">
+                <div class="auto-carousel-track" id="track-unhas">
+                    <img src="assets/img/unha1.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="0">
+                    <img src="assets/img/unha2.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="1">
+                    <img src="assets/img/unha3.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="2">
+                    <img src="assets/img/unha4.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="3">
+                    <img src="assets/img/unha5.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="4">
+                    <img src="assets/img/unha6.jpg" alt="Unhas Izadora Ribeiro" loading="lazy" data-idx="5">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AVALIAÇÕES ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.5s;">
+            <h2 class="group-title"><i class="fas fa-star"></i> O QUE DIZEM SOBRE A NOEMI</h2>
+            <div class="reviews-carousel">
+                <div class="reviews-track" id="reviews-track">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Trabalho de muita qualidade, com os melhores produtos. Sou fã de carteirinha!"</p>
+                        <span class="review-author">— Avaliação Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"A progressiva ficou lisinha, leve e natural, sem frizz e sem caspa. Resultado incrível!"</p>
+                        <span class="review-author">— Avaliação Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Ótimo atendimento, fácil acesso. Sou cacheada e a Noemi respeita a naturalidade do cabelo."</p>
+                        <span class="review-author">— Avaliação Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Profissional linda e competente, atendimento maravilhoso, lugar lindo e trabalho fantástico."</p>
+                        <span class="review-author">— Avaliação Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Local sempre limpo e organizado, atendimento com muito carinho do início ao fim."</p>
+                        <span class="review-author">— Avaliação Google</span>
+                    </div>
+                </div>
+                <div class="review-dots" id="review-dots"></div>
+            </div>
+            <a href="https://share.google/zjEqFfMTHgyainVsz" target="_blank" class="card-item link-mode" style="margin-top:10px;">
+                <div class="card-content">
+                    <div class="icon-wrapper map-bg"><i class="fab fa-google map-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>5,0 ★ no Google</h3>
+                        <p>+112 avaliações · Veja todas</p>
+                    </div>
+                </div>
+                <div class="action-pill">Ver Mais</div>
+            </a>
+        </section>
+
+        <!-- ===== ENDEREÇO ===== -->
+        <section class="menu-group animate-item" id="secao-local" style="--delay: 0.55s;">
+            <h2 class="group-title"><i class="fas fa-map-marker-alt"></i> ENDEREÇO</h2>
+            <button class="card-item link-mode" onclick="abrirLocalModal()" style="width:100%; text-align:left; border:none; cursor:pointer;">
+                <div class="card-content">
+                    <div class="icon-wrapper map-bg"><i class="fas fa-map-marker-alt map-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Noemi Stefanoni Hairdresser</h3>
+                        <p>R. Albert Sabin, 155 — Ipê 1, Moreira César</p>
+                    </div>
+                </div>
+                <div class="action-pill">Como Chegar</div>
+            </button>
+        </section>
+
+        <!-- ===== BOTÃO WHATSAPP FIXO ===== -->
+        <button class="reserve-btn animate-item" style="--delay: 0.6s;" onclick="abrirWhatsModal()">
+            <i class="fab fa-whatsapp"></i> Agendar Horário
+        </button>
+
+    </main>
+
+    <!-- ===== MODAL QR CODE ===== -->
+    <div id="page-qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharQrModal()"><i class="fas fa-times"></i></button>
+            <h3>Cartão Virtual</h3>
+            <p>Leia o QR Code abaixo com a câmera para acessar este cartão em outro celular.</p>
+            <div class="modal-qr-box">
+                <div id="qrcode-container"></div>
+            </div>
+            <button class="action-pill modal-btn-full" onclick="compartilharSite()">
+                <i class="fas fa-share-alt"></i> Enviar Link
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL WHATSAPP (ESCOLHA DA PROFISSIONAL) ===== -->
+    <div id="whats-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharWhatsModal()"><i class="fas fa-times"></i></button>
+            <h3>Falar no WhatsApp</h3>
+            <p>Escolha com quem você quer falar:</p>
+            <div class="whats-choice-list">
+                <a href="https://wa.me/5512991962508"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Noemi Stefanoni</h4>
+                        <p>Cabelo · +55 12 99196-2508</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://wa.me/5512991935453"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Vitória Marcondes</h4>
+                        <p>Coloração Pessoal · +55 12 99193-5453</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://wa.me/5512991238097"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Izadora Ribeiro</h4>
+                        <p>Unhas · +55 12 99123-8097</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://wa.me/5512974105456"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Bruna Santos</h4>
+                        <p>Estética · +55 12 97410-5456</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL LOCALIZAÇÃO (GOOGLE MAPS / WAZE) ===== -->
+    <div id="local-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharLocalModal()"><i class="fas fa-times"></i></button>
+            <h3>Como Chegar</h3>
+            <p>R. Albert Sabin, 155 — Ipê 1, Moreira César. Escolha o app para traçar a rota:</p>
+            <div class="whats-choice-list">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=R.+Albert+Sabin,+155+-+Ip%C3%AA+1,+Moreira+C%C3%A9sar+-+SP"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fas fa-map-location-dot" style="color:#4285F4;"></i>
+                    <div class="whats-choice-text">
+                        <h4>Google Maps</h4>
+                        <p>Traçar rota até o salão</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://waze.com/ul?q=R.%20Albert%20Sabin%2C%20155%20Ip%C3%AA%201%20Moreira%20C%C3%A9sar&navigate=yes"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fas fa-location-arrow" style="color:#33CCFF;"></i>
+                    <div class="whats-choice-text">
+                        <h4>Waze</h4>
+                        <p>Traçar rota até o salão</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL FOTO (LIGHTBOX COM SETAS) ===== -->
+    <div id="foto-modal" class="modal-overlay">
+        <div class="modal-content modal-content--photo">
+            <button class="modal-close" onclick="fecharFotoModal()"><i class="fas fa-times"></i></button>
+            <button class="lightbox-arrow lightbox-arrow--left" onclick="navegarFoto(-1)" aria-label="Foto anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img id="foto-modal-img" src="" alt="Foto ampliada">
+            <button class="lightbox-arrow lightbox-arrow--right" onclick="navegarFoto(1)" aria-label="Próxima foto">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div id="copy-toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
