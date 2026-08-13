@@ -91,7 +91,7 @@ const galeriasFotos = {
         "assets/img/trabalho6.jpg", "assets/img/trabalho7.jpg", "assets/img/trabalho8.jpg",
         "assets/img/trabalho9.jpg", "assets/img/trabalho10.jpg", "assets/img/trabalho11.jpg",
         "assets/img/trabalho12.jpg", "assets/img/trabalho13.jpg", "assets/img/trabalho14.jpg",
-        "assets/img/trabalho15.jpg", "assets/img/foto001.jpeg"
+        "assets/img/trabalho15.jpg", "assets/img/trabalho16.jpg"
     ],
     espaco: [
         "assets/img/foto2.webp", "assets/img/foto3.webp",
