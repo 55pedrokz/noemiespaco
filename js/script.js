@@ -90,8 +90,9 @@ const galeriasFotos = {
         "assets/img/foto10.jpg", "assets/img/foto11.jpg",
         "assets/img/trabalho6.jpg", "assets/img/trabalho7.jpg", "assets/img/trabalho8.jpg",
         "assets/img/trabalho9.jpg", "assets/img/trabalho10.jpg", "assets/img/trabalho11.jpg",
-        "assets/img/trabalho12.jpg", "assets/img/trabalho13.jpg", "assets/img/trabalho14.jpg",
-        "assets/img/trabalho15.jpg", "assets/img/foto001.jpeg"
+        "assets/img/trabalho12.jpg", "assets/img/trabalho13.jpg",
+        "assets/img/trabalho15.jpg", "assets/img/foto001.jpeg",
+        "assets/img/trabalho16.jpg", "assets/img/trabalho17.jpg", "assets/img/trabalho18.jpg", "assets/img/trabalho19.jpg", "assets/img/trabalho20.jpg", "assets/img/trabalho21.jpg", "assets/video/trabalho-video.mp4"
     ],
     espaco: [
         "assets/img/foto2.webp", "assets/img/foto3.webp",
@@ -127,18 +128,41 @@ function cliqueCarrossel(evento, nomeGaleria) {
 }
 
 // ================= LIGHTBOX COM SETAS =================
+// Mostra foto ou vídeo (.mp4) no lightbox
+function mostrarMidia(src) {
+    const img = document.getElementById("foto-modal-img");
+    const video = document.getElementById("foto-modal-video");
+    video.pause();
+    if (/\.(mp4|webm|mov)$/i.test(src)) {
+        img.style.display = "none";
+        video.style.display = "block";
+        video.src = src;
+        video.currentTime = 0;
+        video.play().catch(() => {});
+    } else {
+        video.style.display = "none";
+        video.removeAttribute("src");
+        video.load();
+        img.style.display = "block";
+        img.src = src;
+    }
+}
 function abrirFoto(nomeGaleria, idx) {
     galeriaAtual = nomeGaleria;
     indiceAtual = idx;
-    document.getElementById("foto-modal-img").src = galeriasFotos[galeriaAtual][indiceAtual];
+    mostrarMidia(galeriasFotos[galeriaAtual][indiceAtual]);
     document.getElementById("foto-modal").classList.add("active");
 }
 function navegarFoto(direcao) {
     const total = galeriasFotos[galeriaAtual].length;
     indiceAtual = (indiceAtual + direcao + total) % total;
-    document.getElementById("foto-modal-img").src = galeriasFotos[galeriaAtual][indiceAtual];
+    mostrarMidia(galeriasFotos[galeriaAtual][indiceAtual]);
 }
-function fecharFotoModal() { document.getElementById("foto-modal").classList.remove("active"); }
+function fecharFotoModal() {
+    const video = document.getElementById("foto-modal-video");
+    video.pause();
+    document.getElementById("foto-modal").classList.remove("active");
+}
 
 document.addEventListener("keydown", function(e) {
     if (!document.getElementById("foto-modal").classList.contains("active")) return;
